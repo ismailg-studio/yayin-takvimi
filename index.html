@@ -42,17 +42,12 @@ color:#aaa;
 margin-top:10px;
 }
 
-/* 🎵 MÜZİK */
-#bgmusic{
-display:none;
-}
-
-/* INTRO FADE */
+/* fade */
 @keyframes introFade{
 0%{opacity:0;}
 30%{opacity:1;}
 80%{opacity:1;}
-100%{opacity:0; display:none;}
+100%{opacity:0; visibility:hidden;}
 }
 
 /* MAIN */
@@ -66,6 +61,7 @@ animation-delay:3s;
 to{opacity:1;}
 }
 
+/* HEADER */
 header{
 background:#111;
 padding:25px;
@@ -103,7 +99,7 @@ text-align:center;
 border-left:4px solid #e50914;
 }
 
-/* SEZONLAR */
+/* SEZON */
 .season{
 max-width:1000px;
 margin:auto;
@@ -129,19 +125,16 @@ border-left:5px solid #e50914;
 transform:translateY(40px);
 opacity:0;
 animation:fadeUp .6s forwards;
-transition:0.3s;
+transition:.3s;
 }
 
 .card:hover{
-transform:scale(1.02);
+transform:scale(1.03);
 background:#222;
 }
 
 @keyframes fadeUp{
-to{
-opacity:1;
-transform:translateY(0);
-}
+to{opacity:1; transform:translateY(0);}
 }
 
 .date{
@@ -149,13 +142,7 @@ color:#e50914;
 font-weight:bold;
 }
 
-/* PERDELER */
-.perde{
-max-width:1000px;
-margin:auto;
-padding:10px 20px;
-}
-
+/* PERDE */
 .perde h2{
 background:#00bfff;
 padding:10px;
@@ -168,12 +155,6 @@ border-left:5px solid #00bfff;
 }
 
 /* YIL DÖNÜM */
-.anniv{
-max-width:1000px;
-margin:auto;
-padding:10px 20px;
-}
-
 .anniv h2{
 background:gold;
 color:black;
@@ -186,13 +167,14 @@ text-align:center;
 border-left:5px solid gold;
 }
 
+/* FOOTER */
 footer{
 text-align:center;
 padding:30px;
 color:#777;
 }
 
-/* 🔊 MÜZİK BUTONU */
+/* MUSIC BUTTON */
 .music-btn{
 position:fixed;
 bottom:20px;
@@ -200,10 +182,30 @@ right:20px;
 background:#e50914;
 color:white;
 border:none;
-padding:12px 15px;
+padding:14px 15px;
 border-radius:50px;
 cursor:pointer;
 z-index:999;
+box-shadow:0 0 20px #e50914;
+}
+
+/* small flash effect */
+.flash{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:white;
+opacity:0;
+pointer-events:none;
+animation:flash 1s ease;
+}
+
+@keyframes flash{
+0%{opacity:0;}
+20%{opacity:.4;}
+100%{opacity:0;}
 }
 
 </style>
@@ -211,12 +213,12 @@ z-index:999;
 
 <body>
 
-<!-- 🎵 MÜZİK -->
+<!-- 🎵 MÜZİK (ÇALIŞAN CDN) -->
 <audio id="bgmusic" loop>
-<source src="muzik.mp3" type="audio/mpeg">
+<source src="https://cdn.pixabay.com/download/audio/2023/03/08/audio_2b2a6b6b6f.mp3?filename=dark-cinematic-ambient-142135.mp3" type="audio/mpeg">
 </audio>
 
-<!-- 🔊 MÜZİK BUTONU -->
+<!-- 🔊 BUTTON -->
 <button class="music-btn" onclick="toggleMusic()">🎵</button>
 
 <!-- INTRO -->
@@ -241,8 +243,6 @@ z-index:999;
 </div>
 
 <!-- SEZONLAR -->
-<!-- (SENİN TÜM SEZONLAR AYNI KALDI) -->
-
 <div class="season">
 <h2>SEZON 1 (1-3)</h2>
 <div class="card"><div class="date">17.09.2024</div>Bölüm 1</div>
@@ -316,20 +316,18 @@ Irklar Arası Savaş • İsmailG Studio
 <script>
 let music = document.getElementById("bgmusic");
 
-function startMusic(){
-    if(music){
-        music.play().catch(()=>{});
-    }
-}
-
 function toggleMusic(){
-    if(!music) return;
-
     if(music.paused){
         music.play();
     } else {
         music.pause();
     }
+}
+
+/* GARANTİ BAŞLATMA */
+function startMusic(){
+    music.play().catch(()=>{});
+    document.body.insertAdjacentHTML("beforeend", '<div class="flash"></div>');
 }
 
 document.addEventListener("click", startMusic, {once:true});
