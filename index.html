@@ -4,104 +4,180 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Irklar Arası Savaş - Yayın Takvimi</title><style>
 
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
 body{
-    margin:0;
-    background:#0b0b0b;
-    color:white;
-    font-family:Arial,sans-serif;
+background:#0b0b0b;
+font-family:Arial,sans-serif;
+color:white;
 }
 
 header{
-    text-align:center;
-    padding:30px;
-    background:#111;
-    color:#e50914;
-    font-size:34px;
-    font-weight:bold;
+background:#111;
+padding:30px;
+text-align:center;
 }
 
-.sub{
-    text-align:center;
-    color:#aaa;
-    margin:15px 0 30px;
-    font-size:18px;
+header h1{
+color:#e50914;
+font-size:34px;
+}
+
+header p{
+color:#aaa;
+margin-top:10px;
 }
 
 .container{
-    max-width:1000px;
-    margin:auto;
-    padding:20px;
+max-width:1000px;
+margin:auto;
+padding:20px;
+}
+
+.season{
+margin-bottom:40px;
+}
+
+.season-title{
+background:#e50914;
+padding:12px;
+border-radius:10px;
+font-size:22px;
+font-weight:bold;
+text-align:center;
+margin-bottom:15px;
 }
 
 .card{
-    background:#181818;
-    border-left:5px solid #e50914;
-    margin-bottom:15px;
-    padding:15px;
-    border-radius:10px;
-    transition:.3s;
+background:#181818;
+border-left:5px solid #e50914;
+padding:15px;
+margin-bottom:12px;
+border-radius:10px;
+transform:translateY(40px);
+opacity:0;
+animation:show .7s forwards;
 }
 
-.card:hover{
-    transform:translateX(5px);
-    background:#202020;
-}
+.card:nth-child(2){animation-delay:.1s;}
+.card:nth-child(3){animation-delay:.2s;}
+.card:nth-child(4){animation-delay:.3s;}
+.card:nth-child(5){animation-delay:.4s;}
+.card:nth-child(6){animation-delay:.5s;}
+.card:nth-child(7){animation-delay:.6s;}
+.card:nth-child(8){animation-delay:.7s;}
+.card:nth-child(9){animation-delay:.8s;}
 
 .date{
-    color:#e50914;
-    font-weight:bold;
-    margin-bottom:5px;
-}
-
-.title{
-    font-size:20px;
+color:#e50914;
+font-weight:bold;
+margin-bottom:5px;
 }
 
 .special{
-    border-left:5px solid gold;
+border-left:5px solid gold;
+}
+
+.special .date{
+color:gold;
 }
 
 .perde{
-    border-left:5px solid #00c3ff;
+border-left:5px solid #00bfff;
 }
 
-</style></head><body><header>IRKLAR ARASI SAVAŞ</header><div class="sub">
-Yayın Takvimi ve Kronoloji
-</div><div class="container"><div class="card special">
+.perde .date{
+color:#00bfff;
+}
+
+@keyframes show{
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+footer{
+text-align:center;
+padding:30px;
+color:#777;
+}
+
+</style></head><body><header>
+<h1>IRKLAR ARASI SAVAŞ</h1>
+<p>Yayın Takvimi ve Kronoloji</p>
+</header><div class="container"><div class="card special">
 <div class="date">03.09.2024</div>
-<div class="title">🎉 İlk Tanıtım</div>
-</div><div class="card"><div class="date">17.09.2024</div><div class="title">Bölüm 1</div></div>
-<div class="card"><div class="date">24.09.2024</div><div class="title">Bölüm 2</div></div>
-<div class="card"><div class="date">11.10.2024</div><div class="title">Bölüm 3</div></div>
-<div class="card"><div class="date">19.10.2024</div><div class="title">Bölüm 4</div></div>
-<div class="card"><div class="date">20.10.2024</div><div class="title">Bölüm 5</div></div>
-<div class="card"><div class="date">21.10.2024</div><div class="title">Bölüm 6</div></div>
-<div class="card"><div class="date">14.11.2024</div><div class="title">Bölüm 7</div></div>
-<div class="card"><div class="date">29.11.2024</div><div class="title">Bölüm 8</div></div>
-<div class="card"><div class="date">20.12.2024</div><div class="title">Bölüm 9</div></div><div class="card"><div class="date">03.01.2025</div><div class="title">Bölüm 10</div></div>
-<div class="card"><div class="date">11.01.2025</div><div class="title">Bölüm 11</div></div>
-<div class="card"><div class="date">17.01.2025</div><div class="title">Bölüm 12</div></div>
-<div class="card"><div class="date">09.02.2025</div><div class="title">Bölüm 13</div></div>
-<div class="card"><div class="date">21.02.2025</div><div class="title">Bölüm 14</div></div>
-<div class="card"><div class="date">09.04.2025</div><div class="title">Bölüm 15</div></div>
-<div class="card"><div class="date">07.05.2025</div><div class="title">Bölüm 16</div></div><div class="card perde">
+<div>🎉 İlk Tanıtım</div>
+</div><div class="season">
+<div class="season-title">📺 SEZON 1</div><div class="card">
+<div class="date">17.09.2024</div>
+<div>Bölüm 1</div>
+</div><div class="card">
+<div class="date">24.09.2024</div>
+<div>Bölüm 2</div>
+</div><div class="card">
+<div class="date">11.10.2024</div>
+<div>Bölüm 3</div>
+</div></div><div class="season">
+<div class="season-title">📺 SEZON 2</div><div class="card">
+<div class="date">19.10.2024</div>
+<div>Bölüm 4</div>
+</div><div class="card">
+<div class="date">20.10.2024</div>
+<div>Bölüm 5</div>
+</div><div class="card">
+<div class="date">21.10.2024</div>
+<div>Bölüm 6</div>
+</div></div><div class="season">
+<div class="season-title">📺 SEZON 3</div><div class="card"><div class="date">14.11.2024</div><div>Bölüm 7</div></div>
+<div class="card"><div class="date">29.11.2024</div><div>Bölüm 8</div></div>
+<div class="card"><div class="date">20.12.2024</div><div>Bölüm 9</div></div>
+<div class="card"><div class="date">03.01.2025</div><div>Bölüm 10</div></div>
+<div class="card"><div class="date">11.01.2025</div><div>Bölüm 11</div></div>
+<div class="card"><div class="date">17.01.2025</div><div>Bölüm 12</div></div>
+<div class="card"><div class="date">09.02.2025</div><div>Bölüm 13</div></div>
+<div class="card"><div class="date">21.02.2025</div><div>Bölüm 14</div></div>
+<div class="card"><div class="date">09.04.2025</div><div>Bölüm 15</div></div>
+<div class="card"><div class="date">07.05.2025</div><div>Bölüm 16</div></div></div><div class="card perde">
 <div class="date">16.06.2025</div>
-<div class="title">🎬 1. Perde Başlangıcı</div>
-</div><div class="card"><div class="date">24.06.2025</div><div class="title">Bölüm 17</div></div>
-<div class="card"><div class="date">06.07.2025</div><div class="title">Bölüm 18</div></div><div class="card special">
-<div class="date">17.09.2025</div>
-<div class="title">🎉 1. Yıl Dönümü</div>
-</div><div class="card"><div class="date">04.10.2025</div><div class="title">Bölüm 19</div></div>
-<div class="card"><div class="date">13.12.2025</div><div class="title">Bölüm 20</div></div><div class="card"><div class="date">02.01.2026</div><div class="title">Bölüm 21</div></div>
-<div class="card"><div class="date">20.01.2026</div><div class="title">Bölüm 22</div></div>
-<div class="card"><div class="date">26.01.2026</div><div class="title">Bölüm 23</div></div>
-<div class="card"><div class="date">19.02.2026</div><div class="title">Bölüm 24</div></div>
-<div class="card"><div class="date">27.02.2026</div><div class="title">Bölüm 25</div></div>
-<div class="card"><div class="date">06.03.2026</div><div class="title">Bölüm 26</div></div>
-<div class="card"><div class="date">29.04.2026</div><div class="title">Bölüm 27</div></div>
-<div class="card"><div class="date">04.05.2026</div><div class="title">Bölüm 28</div></div>
-<div class="card"><div class="date">01.06.2026</div><div class="title">Bölüm 29</div></div><div class="card perde">
+<div>🎭 1. Perde Başlangıcı</div>
+</div><div class="season">
+<div class="season-title">📺 SEZON 4</div><div class="card">
+<div class="date">24.06.2025</div>
+<div>Bölüm 17</div>
+</div><div class="card">
+<div class="date">06.07.2025</div>
+<div>Bölüm 18</div>
+</div></div><div class="season">
+<div class="season-title">📺 SEZON 5</div><div class="card"><div class="date">04.10.2025</div><div>Bölüm 19</div></div>
+<div class="card"><div class="date">13.12.2025</div><div>Bölüm 20</div></div>
+<div class="card"><div class="date">02.01.2026</div><div>Bölüm 21</div></div>
+<div class="card"><div class="date">20.01.2026</div><div>Bölüm 22</div></div>
+<div class="card"><div class="date">26.01.2026</div><div>Bölüm 23</div></div>
+<div class="card"><div class="date">19.02.2026</div><div>Bölüm 24</div></div>
+<div class="card"><div class="date">27.02.2026</div><div>Bölüm 25</div></div>
+<div class="card"><div class="date">06.03.2026</div><div>Bölüm 26</div></div></div><div class="card perde">
 <div class="date">23.06.2026</div>
-<div class="title">🎬 2. Perde Başlangıcı</div>
-</div></div></body>
+<div>🎭 2. Perde Başlangıcı</div>
+</div><div class="season">
+<div class="season-title">📺 SEZON 6</div><div class="card">
+<div class="date">29.04.2026</div>
+<div>Bölüm 27</div>
+</div><div class="card">
+<div class="date">04.05.2026</div>
+<div>Bölüm 28</div>
+</div><div class="card">
+<div class="date">01.06.2026</div>
+<div>Bölüm 29</div>
+</div></div><div class="card special">
+<div class="date">17.09.2025</div>
+<div>🏆 1. Yıl Dönümü</div>
+</div></div><footer>
+Irklar Arası Savaş © İsmailG Studio
+</footer></body>
 </html>
