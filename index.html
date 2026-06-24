@@ -137,12 +137,6 @@ transform:scale(1.02);
 background:#222;
 }
 
-.card:nth-child(2){animation-delay:.1s;}
-.card:nth-child(3){animation-delay:.2s;}
-.card:nth-child(4){animation-delay:.3s;}
-.card:nth-child(5){animation-delay:.4s;}
-.card:nth-child(6){animation-delay:.5s;}
-
 @keyframes fadeUp{
 to{
 opacity:1;
@@ -212,6 +206,9 @@ cursor:pointer;
 z-index:999;
 }
 
+</style>
+</head>
+
 <body>
 
 <!-- 🎵 MÜZİK -->
@@ -219,25 +216,8 @@ z-index:999;
 <source src="muzik.mp3" type="audio/mpeg">
 </audio>
 
-<script>
-let music;
-
-function startMusic(){
-    if(!music){
-        music = document.getElementById("bgmusic");
-    }
-    music.play();
-}
-
-// kullanıcı etkileşimi şart
-document.addEventListener("click", startMusic);
-document.addEventListener("touchstart", startMusic);
-</script>
-
-</body>
-        
 <!-- 🔊 MÜZİK BUTONU -->
-<button class="music-btn" onclick="toggleMusic()">🔊</button>
+<button class="music-btn" onclick="toggleMusic()">🎵</button>
 
 <!-- INTRO -->
 <div class="intro">
@@ -260,7 +240,8 @@ document.addEventListener("touchstart", startMusic);
 <div class="stat">1 Yıl Dönümü</div>
 </div>
 
-<!-- 🔥 SENİN TÜM SEZONLAR BURADA EKSİKSİZ DURUYOR -->
+<!-- SEZONLAR -->
+<!-- (SENİN TÜM SEZONLAR AYNI KALDI) -->
 
 <div class="season">
 <h2>SEZON 1 (1-3)</h2>
@@ -332,21 +313,27 @@ Irklar Arası Savaş • İsmailG Studio
 
 </div>
 
-<!-- 🔥 GARANTİ MÜZİK SİSTEMİ -->
 <script>
 let music = document.getElementById("bgmusic");
 
-document.addEventListener("click", function () {
-    music.play();
-}, { once:true });
+function startMusic(){
+    if(music){
+        music.play().catch(()=>{});
+    }
+}
 
 function toggleMusic(){
+    if(!music) return;
+
     if(music.paused){
         music.play();
     } else {
         music.pause();
     }
 }
+
+document.addEventListener("click", startMusic, {once:true});
+document.addEventListener("touchstart", startMusic, {once:true});
 </script>
 
 </body>
