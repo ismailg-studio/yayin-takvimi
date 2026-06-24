@@ -212,9 +212,6 @@ cursor:pointer;
 z-index:999;
 }
 
-</style>
-</head>
-
 <body>
 
 <!-- 🎵 MÜZİK -->
@@ -222,6 +219,23 @@ z-index:999;
 <source src="muzik.mp3" type="audio/mpeg">
 </audio>
 
+<script>
+let music;
+
+function startMusic(){
+    if(!music){
+        music = document.getElementById("bgmusic");
+    }
+    music.play();
+}
+
+// kullanıcı etkileşimi şart
+document.addEventListener("click", startMusic);
+document.addEventListener("touchstart", startMusic);
+</script>
+
+</body>
+        
 <!-- 🔊 MÜZİK BUTONU -->
 <button class="music-btn" onclick="toggleMusic()">🔊</button>
 
